@@ -6,7 +6,7 @@
       "precio": 15.000,
       "imagen": "",
       "categoria": "ropa",
-      "stock_disponible": true
+      "stockDisponible": true
     },
     {
       "id": 202,
@@ -15,7 +15,7 @@
       "precio": 8.500,
       "imagen": "",
       "categoria": "maquillaje",
-      "stock_disponible": true
+      "stockDisponible": true
     },
     {
       "id": 203,
@@ -24,6 +24,6 @@
       "precio": 3.200,
       "imagen": "",
       "categoria": "accesorios",
-      "stock_disponible": false
+      "stockDisponible": false
     }
   ]
