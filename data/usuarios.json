@@ -17,10 +17,10 @@
     },
     {
       "id": 3,
-      "nombre": "Admin",
-      "apellido": "Amalia",
-      "email": "admin@amaliastore.com",
-      "contraseña": "adminAmaliaStore",
+      "nombre": "Paloma",
+      "apellido": "Cruz",
+      "email": "paloma@amaliastore.com",
+      "contraseña": "PalomaAmaliaStore",
       "EsCliente": false
     }
   ]
