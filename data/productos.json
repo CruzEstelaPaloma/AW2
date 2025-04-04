@@ -3,7 +3,7 @@
       "id": 201,
       "nombre": "Vestido Floral de Verano",
       "desc": "Vestido corto con estampado floral, talle M",
-      "precio": 15000,
+      "precio": 15.000,
       "imagen": "",
       "categoria": "ropa",
       "stock_disponible": true
@@ -12,7 +12,7 @@
       "id": 202,
       "nombre": "Paleta de Sombras Face Glam",
       "desc": "12 tonos cálidos, fuerte pigmentación",
-      "precio": 8500,
+      "precio": 8.500,
       "imagen": "",
       "categoria": "maquillaje",
       "stock_disponible": true
@@ -21,7 +21,7 @@
       "id": 203,
       "nombre": "Collar Minimalista Dorado",
       "desc": "Accesorio de acero inoxidable, diseño delicado",
-      "precio": 3200,
+      "precio": 3.200,
       "imagen": "",
       "categoria": "accesorios",
       "stock_disponible": false

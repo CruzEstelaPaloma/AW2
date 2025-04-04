@@ -3,7 +3,7 @@
       "id": 6001,
       "id_usuario": 1,
       "fecha": "2025-04-02T14:30:00",
-      "total": 8500,
+      "total": 8.500,
       "productos": [
         {
           "id": 202,
@@ -15,7 +15,7 @@
       "id": 6002,
       "id_usuario": 2,
       "fecha": "2025-04-03T11:15:00",
-      "total": 18200,
+      "total": 18.200,
       "productos": [
         {
           "id": 201,
