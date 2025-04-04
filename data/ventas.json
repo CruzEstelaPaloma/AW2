@@ -1,0 +1,30 @@
+[
+    {
+      "id": 6001,
+      "id_usuario": 1,
+      "fecha": "2025-04-02T14:30:00",
+      "total": 8500,
+      "productos": [
+        {
+          "id": 202,
+          "cantidad": 1
+        }
+      ]
+    },
+    {
+      "id": 6002,
+      "id_usuario": 2,
+      "fecha": "2025-04-03T11:15:00",
+      "total": 18200,
+      "productos": [
+        {
+          "id": 201,
+          "cantidad": 1
+        },
+        {
+          "id": 203,
+          "cantidad": 1
+        }
+      ]
+    }
+  ]

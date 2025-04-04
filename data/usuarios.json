@@ -1,0 +1,26 @@
+[
+    {
+      "id": 1,
+      "nombre": "Martina",
+      "apellido": "Fernández",
+      "email": "lucia.fernandez@ejemeplo.com",
+      "contraseña": "Martina2024",
+      "es_cliente": true
+    },
+    {
+      "id": 2,
+      "nombre": "Camila",
+      "apellido": "Martínez",
+      "email": "camila.martinez@ejemplo.com",
+      "contraseña": "cami123",
+      "es_cliente": true
+    },
+    {
+      "id": 3,
+      "nombre": "Admin",
+      "apellido": "Amalia",
+      "email": "admin@amaliastore.com",
+      "contraseña": "adminAmaliaStore",
+      "es_cliente": false
+    }
+  ]
