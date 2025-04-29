@@ -1,30 +1,32 @@
 [
-    {
-      "id": 6001,
-      "id_usuario": 1,
-      "fecha": "2025-04-02T14:30:00",
-      "total": 8.500,
-      "productos": [
-        {
-          "id": 202,
-          "cantidad": 1
-        }
-      ]
-    },
-    {
-      "id": 6002,
-      "id_usuario": 2,
-      "fecha": "2025-04-03T11:15:00",
-      "total": 18.200,
-      "productos": [
-        {
-          "id": 201,
-          "cantidad": 1
-        },
-        {
-          "id": 203,
-          "cantidad": 1
-        }
-      ]
-    }
-  ]
+  {
+    "id": 6001,
+    "id_usuario": 1,
+    "fecha": "2025-04-02T14:30:00",
+    "direccion": "Algarrobo 28",
+    "total": 8.5,
+    "productos": [
+      {
+        "id": 202,
+        "cantidad": 1
+      }
+    ]
+  },
+  {
+    "id": 6002,
+    "id_usuario": 2,
+    "fecha": "2025-04-03T11:15:00",
+    "direccion": "Rio atul 207",
+    "total": 100,
+    "productos": [
+      {
+        "id": 201,
+        "cantidad": 1
+      },
+      {
+        "id": 203,
+        "cantidad": 1
+      }
+    ]
+  }
+]

@@ -1,29 +1,38 @@
 [
-    {
-      "id": 201,
-      "nombre": "Vestido Floral de Verano",
-      "desc": "Vestido corto con estampado floral, talle M",
-      "precio": 15.000,
-      "imagen": "",
-      "categoria": "ropa",
-      "stockDisponible": true
-    },
-    {
-      "id": 202,
-      "nombre": "Paleta de Sombras Face Glam",
-      "desc": "12 tonos cálidos, fuerte pigmentación",
-      "precio": 8.500,
-      "imagen": "",
-      "categoria": "maquillaje",
-      "stockDisponible": true
-    },
-    {
-      "id": 203,
-      "nombre": "Collar Minimalista Dorado",
-      "desc": "Accesorio de acero inoxidable, diseño delicado",
-      "precio": 3.200,
-      "imagen": "",
-      "categoria": "accesorios",
-      "stockDisponible": false
-    }
-  ]
+  {
+    "id": 201,
+    "nombre": "Vestido Floral de Verano",
+    "desc": "Vestido corto con estampado floral, talle M",
+    "precio": 15,
+    "imagen": "",
+    "categoria": "ropa",
+    "stockDisponible": true
+  },
+  {
+    "id": 202,
+    "nombre": "Paleta de Sombras Face Glam",
+    "desc": "12 tonos cálidos, fuerte pigmentación",
+    "precio": "100.000",
+    "imagen": "",
+    "categoria": "maquillaje",
+    "stockDisponible": true
+  },
+  {
+    "id": 203,
+    "nombre": "Collar Minimalista Dorado",
+    "desc": "Accesorio de acero inoxidable, diseño delicado",
+    "precio": 3.2,
+    "imagen": "",
+    "categoria": "accesorios",
+    "stockDisponible": false
+  },
+  {
+    "nombre": "Top Paris",
+    "desc": "top blanco con imagen de Torre Eiffel",
+    "precio": 5,
+    "imagen": "",
+    "categoria": "Ropa",
+    "stockDisponible": true,
+    "id": 204
+  }
+]
