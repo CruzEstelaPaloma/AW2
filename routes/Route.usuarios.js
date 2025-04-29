@@ -21,7 +21,7 @@ const leerVentas = async () => {
 };
 
 
-// GET - Todos los usuarios
+// LISTA TODOS LOS USUARIOS
 router.get('/', async (_, res) => {
   try {
     const usuarios = await leerUsuarios();
@@ -31,7 +31,7 @@ router.get('/', async (_, res) => {
   }
 });
 
-// GET - Usuario por ID
+// LISTA USUARIO POR ID
 router.get('/:id', async (req, res) => {
   const id = parseInt(req.params.id);
   const usuarios = await leerUsuarios();
@@ -41,7 +41,7 @@ router.get('/:id', async (req, res) => {
     : res.status(404).json({ mensaje: 'Usuario no encontrado' });
 });
 
-// POST - Crear nuevo usuario
+// CREA UN NUEVO USER
 router.post('/', async (req, res) => {
   try {
     const usuarios = await leerUsuarios();
@@ -60,7 +60,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-// POST - Buscar usuario por nombre
+// BUSCA PRODUCTO POR NOMBRE
 router.post('/buscar', async (req, res) => {
   const { nombre } = req.body;
   if (!nombre) return res.status(400).json({ error: 'Falta el campo nombre' });
@@ -73,7 +73,7 @@ router.post('/buscar', async (req, res) => {
   res.json(encontrados);
 });
 
-// PUT - Editar usuario
+// UPDATE USUARIO
 router.put('/:id', async (req, res) => {
   const id = parseInt(req.params.id);
   const nuevosDatos = req.body;
@@ -89,7 +89,7 @@ router.put('/:id', async (req, res) => {
     res.status(404).json({ mensaje: 'Usuario no encontrado' });
   }
 });
-// DELETE - Eliminar usuario solo si no tiene ventas asociadas
+//  Eliminar usuario solo si no tiene ventas asociadas
 router.delete('/:id', async (req, res) => {
   const id = parseInt(req.params.id);
   let usuarios = await leerUsuarios();
@@ -99,7 +99,7 @@ router.delete('/:id', async (req, res) => {
   console.log('id a eliminar : ', id);
   console.log('Ventas del usuario : ', ventas.filter(v=> v.id_usuario === id ));
 
-  // Verificar si hay ventas asociadas al usuario
+  // Verificar si hay ventas asociadas al user
   const tieneVentas = ventas.some(v => v.id_usuario === id);
 
   if (tieneVentas) {

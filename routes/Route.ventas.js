@@ -19,7 +19,7 @@ const leerUsuarios = async () => {
   return JSON.parse(data);
 };
 
-// GET - Todas las ventas
+// LISTA TODAS LAS VENTAS
 router.get('/', async (_, res) => {
   try {
     const ventas = await leerVentas();
@@ -29,7 +29,7 @@ router.get('/', async (_, res) => {
   }
 });
 
-// GET - Venta por ID
+// LISTA VENTA POR ID
 router.get('/:id', async (req, res) => {
   const id = parseInt(req.params.id);
   const ventas = await leerVentas();
@@ -39,7 +39,7 @@ router.get('/:id', async (req, res) => {
     : res.status(404).json({ mensaje: 'Venta no encontrada' });
 });
 
-// POST - Nueva venta
+// CREA NUEVA VENTA
 router.post('/', async (req, res) => {
   try {
     const ventas = await leerVentas();
@@ -59,7 +59,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-// POST - Buscar ventas por id_usuario
+// BUSCA VENTA POR EL ID DEL USER
 router.post('/buscar', async (req, res) => {
   const { id_usuario } = req.body;
   if (!id_usuario) return res.status(400).json({ error: 'Falta id_usuario' });
@@ -69,7 +69,7 @@ router.post('/buscar', async (req, res) => {
   res.json(resultado);
 });
 
-// PUT - Editar venta
+// UPDATE VENTA
 router.put('/:id', async (req, res) => {
   const id = parseInt(req.params.id);
   const nuevosDatos = req.body;
@@ -86,7 +86,7 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-// DELETE - Eliminar venta
+//  Eliminar venta
 router.delete('/:id', async (req, res) => {
   const id = parseInt(req.params.id);
   let ventas = await leerVentas();

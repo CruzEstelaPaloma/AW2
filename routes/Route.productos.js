@@ -13,7 +13,7 @@ const guardarProductos = async (productos) => {
   await fs.writeFile(archivo, JSON.stringify(productos, null, 2));
 };
 
-// GET - Todos los productos
+// LISTA TODOS LOS PRODUCTOS 
 router.get('/', async (_, res) => {
   try {
     const productos = await leerProductos();
@@ -23,7 +23,7 @@ router.get('/', async (_, res) => {
   }
 });
 
-// GET - Producto por ID
+// LISTA PRODUCTOS POR ID
 router.get('/:id', async (req, res) => {
   const id = parseInt(req.params.id);
   const productos = await leerProductos();
@@ -33,7 +33,7 @@ router.get('/:id', async (req, res) => {
     : res.status(404).json({ mensaje: 'Producto no encontrado' });
 });
 
-// POST - Crear nuevo producto
+// CREA UN NUEVO PRODUCTO
 router.post('/', async (req, res) => {
   try {
     const productos = await leerProductos();
@@ -52,7 +52,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-// POST - Buscar por categoría
+// BUSCA POR CATEGORIA
 router.post('/buscar', async (req, res) => {
   const { categoria } = req.body;
   if (!categoria) return res.status(400).json({ error: 'Falta la categoría' });
@@ -65,7 +65,7 @@ router.post('/buscar', async (req, res) => {
   res.json(encontrados);
 });
 
-// PUT - Editar producto
+// UPDATE PRODUCTO
 router.put('/:id', async (req, res) => {
   const id = parseInt(req.params.id);
   const nuevosDatos = req.body;
