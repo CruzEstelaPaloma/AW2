@@ -22,5 +22,14 @@
     "email": "paloma@amaliastore.com",
     "contraseña": "PalomaAmaliaStore",
     "EsCliente": false
+  },
+  {
+    "nombre": "p3",
+    "apellido": "p3",
+    "email": "p3@p3.com",
+    "contraseña": "p3",
+    "fechaNacimiento": "2025-05-31",
+    "EsCliente": true,
+    "id": 4
   }
 ]
