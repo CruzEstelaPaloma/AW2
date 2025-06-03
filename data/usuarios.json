@@ -31,5 +31,23 @@
     "fechaNacimiento": "2025-05-31",
     "EsCliente": true,
     "id": 4
+  },
+  {
+    "nombre": "p4",
+    "apellido": "p4",
+    "email": "p4@p4.com",
+    "contraseña": "$2b$10$e5Nnt.v4jqzlCaa.NktsCebMeP3i3gR1JAQ1EURuOXGYoCeCBQmsm",
+    "fechaNacimiento": "2025-06-04",
+    "EsCliente": true,
+    "id": 5
+  },
+  {
+    "nombre": "paloma",
+    "apellido": "cruz",
+    "email": "estelapalomacruz@gmail.com",
+    "contraseña": "$2b$10$Ib.rGS.VCzzpYsKeJiKoDOdLghz.pvZZazkaNPm95pOLEKGxAMYLu",
+    "fechaNacimiento": "2025-06-19",
+    "EsCliente": true,
+    "id": 6
   }
 ]
