@@ -1,85 +1,19 @@
-import { Router } from 'express';
-import fs from 'fs/promises';
+import express from 'express';
 
-const router = Router();
-const archivo = './data/productos.json';
+import {
+  getProductos,
+  getProductoById,
+  createProducto,
+  updateProducto,
+  deleteProducto
+} from '../actions/productos.actions.js';
 
-const leerProductos = async () => {
-  const data = await fs.readFile(archivo, 'utf-8');
-  return JSON.parse(data);
-};
+const router = express.Router();
 
-const guardarProductos = async (productos) => {
-  await fs.writeFile(archivo, JSON.stringify(productos, null, 2));
-};
-
-// LISTA TODOS LOS PRODUCTOS 
-router.get('/', async (_, res) => {
-  try {
-    const productos = await leerProductos();
-    res.json(productos);
-  } catch {
-    res.status(500).json({ error: 'Error al leer los datos.' });
-  }
-});
-
-// LISTA PRODUCTOS POR ID
-router.get('/:id', async (req, res) => {
-  const id = parseInt(req.params.id);
-  const productos = await leerProductos();
-  const producto = productos.find(p => p.id === id);
-  producto
-    ? res.json(producto)
-    : res.status(404).json({ mensaje: 'Producto no encontrado' });
-});
-
-// CREA UN NUEVO PRODUCTO
-router.post('/', async (req, res) => {
-  try {
-    const productos = await leerProductos();
-    const nuevo = req.body;
-
-    if (!nuevo.nombre || !nuevo.precio || !nuevo.categoria) {
-      return res.status(400).json({ error: 'Faltan campos obligatorios' });
-    }
-
-    nuevo.id = productos.length > 0 ? productos.at(-1).id + 1 : 1;
-    productos.push(nuevo);
-    await guardarProductos(productos);
-    res.status(201).json(nuevo);
-  } catch {
-    res.status(500).json({ error: 'Error al guardar el producto.' });
-  }
-});
-
-// BUSCA POR CATEGORIA
-router.post('/buscar', async (req, res) => {
-  const { categoria } = req.body;
-  if (!categoria) return res.status(400).json({ error: 'Falta la categoría' });
-
-  const productos = await leerProductos();
-  const encontrados = productos.filter(p =>
-    p.categoria.toLowerCase() === categoria.toLowerCase()
-  );
-
-  res.json(encontrados);
-});
-
-// UPDATE PRODUCTO
-router.put('/:id', async (req, res) => {
-  const id = parseInt(req.params.id);
-  const nuevosDatos = req.body;
-
-  let productos = await leerProductos();
-  const index = productos.findIndex(p => p.id === id);
-
-  if (index !== -1) {
-    productos[index] = { ...productos[index], ...nuevosDatos };
-    await guardarProductos(productos);
-    res.json(productos[index]);
-  } else {
-    res.status(404).json({ mensaje: 'Producto no encontrado' });
-  }
-});
+router.get('/', getProductos);
+router.get('/:id', getProductoById);
+router.post('/', createProducto);
+router.put('/:id', updateProducto);
+router.delete('/:id', deleteProducto);
 
 export default router;

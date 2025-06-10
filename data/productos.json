@@ -1,116 +1,137 @@
-{
-  "productos": {
-    "maquillaje": [
-      {
-        "id": 1,
-        "nombre": "Base de Maquillaje Líquida",
-        "descripcion": "Base líquida de cobertura media con acabado natural.",
-        "precio": 15.99,
-        "imagen": "/Form_ecommerce/assets/Productos/Maquillaje/M1.avif"
-      },
-      {
-        "id": 2,
-        "nombre": "Máscara de Pestañas Voluminizadora",
-        "descripcion": "Máscara de pestañas resistente al agua.",
-        "precio": 12.49,
-        "imagen":"/Form_ecommerce/assets/Productos/Maquillaje/mascaraPestanas.jpeg"
-      },
-      {
-        "id": 3,
-        "nombre": "Paleta de Sombras 12 Colores",
-        "descripcion": "Paleta con tonos mate y metálicos.",
-        "precio": 45.00,
-        "imagen": "/Form_ecommerce/assets/Productos/Maquillaje/sobraDoce.png"
-      },
-      {
-        "id": 4,
-        "nombre": "Labial Mate de Larga Duración",
-        "descripcion": "Labial mate que hidrata y dura todo el día.",
-        "precio": 22.99,
-        "imagen": "/Form_ecommerce/assets/Productos//Maquillaje/labial.jpg"
-      },
-      {
-        "id": 5,
-        "nombre": "Polvo Compacto Matificante",
-        "descripcion": "Polvo compacto para sellar el maquillaje.",
-        "precio": 10.99,
-        "imagen":"/Form_ecommerce/assets/Productos//Maquillaje/polvo.jpeg"
-      }
-    ],
-    "accesorios": [
-      {
-        "id": 6,
-        "nombre": "Anillo de Plata",
-        "descripcion": "Anillo de plata con diseño elegante.",
-        "precio": 50.00,
-        "imagen": "/Form_ecommerce/assets/Productos//Accesorios/anillo.jpeg"
-      },
-      {
-        "id": 7,
-        "nombre": "Pulsera de Cuero",
-        "descripcion": "Pulsera de cuero con detalles metálicos.",
-        "precio": 25.00,
-        "imagen": "/Form_ecommerce/assets/Productos//Accesorios/Pulsera Cuero.jpeg"
-      },
-      {
-        "id": 8,
-        "nombre": "Gafas de Sol",
-        "descripcion": "Gafas de sol con diseño moderno.",
-        "precio": 30.00,
-        "imagen": "/Form_ecommerce/assets/Productos//Accesorios/gafas.jpg"
-      },
-      {
-        "id": 9,
-        "nombre": "Reloj de Pulsera",
-        "descripcion": "Reloj de pulsera con correa de acero inoxidable gold rose.",
-        "precio": 120.00,
-        "imagen": "/Form_ecommerce/assets/Productos//Accesorios/reloj2.webp"
-      },
-      {
-        "id": 10,
-        "nombre": "Collar de Plata",
-        "descripcion": "Collar de plata con diseño exclusivo.",
-        "precio": 70.00,
-        "imagen": "/Form_ecommerce/assets/Productos//Accesorios/collar.webp"
-      }
-    ],
-    "ropa": [
-      {
-        "id": 11,
-        "nombre": "Camiseta Brooklin",
-        "descripcion": "Camiseta básica de algodón, cómoda y ligera.",
-        "precio": 15.99,
-        "imagen": "/Form_ecommerce/assets/Productos//ropa/brooklin.jpg"
-      },
-      {
-        "id": 12,
-        "nombre": "Pantalones Vaqueros",
-        "descripcion": "Pantalones vaqueros de corte ajustado.",
-        "precio": 40.00,
-        "imagen": "/Form_ecommerce/assets/Productos//ropa/vaqueros2.jpg"
-      },
-      {
-        "id": 13,
-        "nombre": "Chaqueta de Cuero",
-        "descripcion": "Chaqueta de cuero estilo motero.",
-        "precio": 100.00,
-        "imagen": "/Form_ecommerce/assets/Productos/ropa/cuero.webp"
-      },
-      {
-        "id": 14,
-        "nombre": "Sudadera con Capucha",
-        "descripcion": "Sudadera de algodón, perfecta para climas fríos.",
-        "precio": 35.00,
-        "imagen": "/Form_ecommerce/assets/Productos/ropa/buzo3.jpeg"
-      },
-
-      {
-        "id": 15,
-        "nombre": "Vestido de Noche",
-        "descripcion": "Vestido largo de noche, elegante y sofisticado.",
-        "precio": 80.00,
-        "imagen":"/Form_ecommerce/assets/Productos/ropa/brillos.jpg"
-      }
-    ]
+[
+  {
+    "id": 1,
+    "nombre": "Base de Maquillaje Líquida",
+    "desc": "Base líquida de cobertura media con acabado natural.",
+    "precio": 15.99,
+    "imagen": "/Form_ecommerce/assets/Productos/Maquillaje/M1.avif",
+    "categoria": "maquillaje",
+    "stockDisponible": 10
+  },
+  {
+    "id": 2,
+    "nombre": "Máscara de Pestañas Voluminizadora",
+    "desc": "Máscara de pestañas resistente al agua.",
+    "precio": 12.49,
+    "imagen": "/Form_ecommerce/assets/Productos/Maquillaje/mascaraPestanas.jpeg",
+    "categoria": "maquillaje",
+    "stockDisponible": 10
+  },
+  {
+    "id": 3,
+    "nombre": "Paleta de Sombras 12 Colores",
+    "desc": "Paleta con tonos mate y metálicos.",
+    "precio": 45.0,
+    "imagen": "/Form_ecommerce/assets/Productos/Maquillaje/sobraDoce.png",
+    "categoria": "maquillaje",
+    "stockDisponible": 10
+  },
+  {
+    "id": 4,
+    "nombre": "Labial Mate de Larga Duración",
+    "desc": "Labial mate que hidrata y dura todo el día.",
+    "precio": 22.99,
+    "imagen": "/Form_ecommerce/assets/Productos//Maquillaje/labial.jpg",
+    "categoria": "maquillaje",
+    "stockDisponible": 10
+  },
+  {
+    "id": 5,
+    "nombre": "Polvo Compacto Matificante",
+    "desc": "Polvo compacto para sellar el maquillaje.",
+    "precio": 10.99,
+    "imagen": "/Form_ecommerce/assets/Productos//Maquillaje/polvo.jpeg",
+    "categoria": "maquillaje",
+    "stockDisponible": 10
+  },
+  {
+    "id": 6,
+    "nombre": "Anillo de Plata",
+    "desc": "Anillo de plata con diseño elegante.",
+    "precio": 50.0,
+    "imagen": "/Form_ecommerce/assets/Productos//Accesorios/anillo.jpeg",
+    "categoria": "accesorios",
+    "stockDisponible": 10
+  },
+  {
+    "id": 7,
+    "nombre": "Pulsera de Cuero",
+    "desc": "Pulsera de cuero con detalles metálicos.",
+    "precio": 25.0,
+    "imagen": "/Form_ecommerce/assets/Productos//Accesorios/Pulsera Cuero.jpeg",
+    "categoria": "accesorios",
+    "stockDisponible": 10
+  },
+  {
+    "id": 8,
+    "nombre": "Gafas de Sol",
+    "desc": "Gafas de sol con diseño moderno.",
+    "precio": 30.0,
+    "imagen": "/Form_ecommerce/assets/Productos//Accesorios/gafas.jpg",
+    "categoria": "accesorios",
+    "stockDisponible": 10
+  },
+  {
+    "id": 9,
+    "nombre": "Reloj de Pulsera",
+    "desc": "Reloj de pulsera con correa de acero inoxidable gold rose.",
+    "precio": 120.0,
+    "imagen": "/Form_ecommerce/assets/Productos//Accesorios/reloj2.webp",
+    "categoria": "accesorios",
+    "stockDisponible": 10
+  },
+  {
+    "id": 10,
+    "nombre": "Collar de Plata",
+    "desc": "Collar de plata con diseño exclusivo.",
+    "precio": 70.0,
+    "imagen": "/Form_ecommerce/assets/Productos//Accesorios/collar.webp",
+    "categoria": "accesorios",
+    "stockDisponible": 10
+  },
+  {
+    "id": 11,
+    "nombre": "Camiseta Brooklin",
+    "desc": "Camiseta básica de algodón, cómoda y ligera.",
+    "precio": 15.99,
+    "imagen": "/Form_ecommerce/assets/Productos//ropa/brooklin.jpg",
+    "categoria": "ropa",
+    "stockDisponible": 10
+  },
+  {
+    "id": 12,
+    "nombre": "Pantalones Vaqueros",
+    "desc": "Pantalones vaqueros de corte ajustado.",
+    "precio": 40.0,
+    "imagen": "/Form_ecommerce/assets/Productos//ropa/vaqueros2.jpg",
+    "categoria": "ropa",
+    "stockDisponible": 10
+  },
+  {
+    "id": 13,
+    "nombre": "Chaqueta de Cuero",
+    "desc": "Chaqueta de cuero estilo motero.",
+    "precio": 100.0,
+    "imagen": "/Form_ecommerce/assets/Productos/ropa/cuero.webp",
+    "categoria": "ropa",
+    "stockDisponible": 10
+  },
+  {
+    "id": 14,
+    "nombre": "Sudadera con Capucha",
+    "desc": "Sudadera de algodón, perfecta para climas fríos.",
+    "precio": 35.0,
+    "imagen": "/Form_ecommerce/assets/Productos/ropa/buzo3.jpeg",
+    "categoria": "ropa",
+    "stockDisponible": 10
+  },
+  {
+    "id": 15,
+    "nombre": "Vestido de Noche",
+    "desc": "Vestido largo de noche, elegante y sofisticado.",
+    "precio": 80.0,
+    "imagen": "/Form_ecommerce/assets/Productos/ropa/brillos.jpg",
+    "categoria": "ropa",
+    "stockDisponible": 10
   }
-}
+]

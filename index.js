@@ -1,28 +1,40 @@
-
 import express from 'express';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
 import cors from 'cors';
-import usuariosRoutes from './routes/Route.usuarios.js';
+
+
+
 import productosRoutes from './routes/Route.productos.js';
+import usuariosRoutes from './routes/Route.usuarios.js';
 import ventasRoutes from './routes/Route.ventas.js';
 
-const app = express();
-const PORT = 3000;
+dotenv.config();
 
-// Middlewares
-app.use (cors());
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+
 app.use(express.json());
+app.use(cors());
 
 // Rutas
-app.use('/usuarios', usuariosRoutes);
-app.use('/productos', productosRoutes);
-app.use('/ventas', ventasRoutes);
+app.use('/api/Productos', productosRoutes);
+app.use('/api/usuarios', usuariosRoutes);
+app.use('/api/Ventas', ventasRoutes);
 
-// Ruta de bienvenida
-app.get('/', (req, res) => {
-  res.send('Servidor funcionando correctamente');
+// Conexión a MongoDB 
+mongoose.connect(process.env.MONGO_URI)
+.then(() => {
+  console.log('✅ Conectado a MongoDB');
+  app.listen(PORT, () => {
+    console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
+  });
+})
+.catch((error) => {
+  console.error('❌ Error al conectar a MongoDB:', error);
 });
-
-// Levantar servidor
-app.listen(PORT, () => {
-  console.log(`Servidor iniciado en http://localhost:${PORT}`);
-});
+app.listen(3000, () => {
+    console.log("Servidor escuchando en el puerto 3000");
+  });
+  
