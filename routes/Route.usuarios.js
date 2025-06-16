@@ -12,7 +12,7 @@ import {
 
 const router = express.Router();
 
-router.get('/', getUsuarios);
+router.get('/',verificarToken, getUsuarios);
 router.get('/:id', getUsuarioById);
 router.post('/', createUsuario);
 router.put('/:id', updateUsuario);
