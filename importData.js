@@ -15,7 +15,7 @@ const productosJSON = JSON.parse(fs.readFileSync(path.join(__dirname, 'data/prod
 const usuariosJSON = JSON.parse(fs.readFileSync(path.join(__dirname, 'data/usuarios.json')));
 const ventasJSON = JSON.parse(fs.readFileSync(path.join(__dirname, 'data/ventas.json')));
 
-const importarDatos = async () => {
+ const importarDatos = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URI);
 
@@ -27,7 +27,8 @@ const importarDatos = async () => {
     // 🔥 Eliminar campo 'id' de productos antes de insertar
     const productosLimpios = productosJSON.map(({ id, ...rest }) => rest);
     const productosInsertados = await Producto.insertMany(productosLimpios);
-    const usuariosInsertados = await Usuario.insertMany(usuariosJSON);
+    const usuariosLimpios = usuariosJSON.map(({ id, ...rest }) => rest);
+const usuariosInsertados = await Usuario.insertMany(usuariosLimpios);
 
     // Mapas para relacionar IDs numéricos con _id de Mongo
     const mapaUsuarios = {};
@@ -65,4 +66,4 @@ const importarDatos = async () => {
 };
 
 console.log("📦 Iniciando importación de productos...");
-importarDatos();
+export default importarDatos;
