@@ -1,0 +1,6 @@
+Proyecto de encommerce Aplicaciones web 2 . en este parte se realiza el backend del proyecto, es un multi repo asi que en proyecto-aw1 se encuentra el fronted. 
+la base de datos migra a mongo, existen validaciones para evitar errores como que exista el usuario, 
+cantidades de productos, eliminar productos al carrito, registrar nuevos usuarios. Las ventas y registros de usuarios se guardan con MongoDB,
+ycomo mejora incluimos una barra de busqueda para agilizar la busqueda de productos o produtos de una misma categoria.
+tambien mejoramos la importacion de los datos de json a ongo por medio de un scrip .
+
