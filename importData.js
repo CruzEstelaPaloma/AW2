@@ -24,13 +24,13 @@ const ventasJSON = JSON.parse(fs.readFileSync(path.join(__dirname, 'data/ventas.
     await Usuario.deleteMany();
     await Venta.deleteMany();
 
-    // 🔥 Eliminar campo 'id' de productos antes de insertar
+    
     const productosLimpios = productosJSON.map(({ id, ...rest }) => rest);
     const productosInsertados = await Producto.insertMany(productosLimpios);
     const usuariosLimpios = usuariosJSON.map(({ id, ...rest }) => rest);
-const usuariosInsertados = await Usuario.insertMany(usuariosLimpios);
+    const usuariosInsertados = await Usuario.insertMany(usuariosLimpios);
 
-    // Mapas para relacionar IDs numéricos con _id de Mongo
+    
     const mapaUsuarios = {};
     usuariosInsertados.forEach(u => {
       mapaUsuarios[u.id] = u._id;
@@ -38,7 +38,7 @@ const usuariosInsertados = await Usuario.insertMany(usuariosLimpios);
 
     const mapaProductos = {};
     productosInsertados.forEach(p => {
-      mapaProductos[p.nombre] = p._id; // Mapeo por nombre porque ya no hay campo `id`
+      mapaProductos[p.nombre] = p._id; 
     });
 
     // Adaptar ventas
@@ -48,7 +48,7 @@ const usuariosInsertados = await Usuario.insertMany(usuariosLimpios);
       direccion: venta.direccion || 'Sin dirección',
       total: venta.total,
       productos: venta.productos
-        .filter(p => p.id) // evitar entradas vacías
+        .filter(p => p.id) 
         .map(p => ({
           id: mapaProductos[productosJSON.find(prod => prod.id === p.id)?.nombre],
           cantidad: p.cantidad

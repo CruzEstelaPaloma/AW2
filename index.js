@@ -32,7 +32,7 @@ mongoose.connect(process.env.MONGO_URI)
   const cantidadProductos = await Producto.countDocuments();
   if (cantidadProductos === 0) {
     console.log('🟡 No hay productos en la base de datos. Importando datos iniciales...');
-    await importarDatos(); // esta función ya hace el insert de productos, usuarios y ventas
+    await importarDatos(); 
   } else {
     console.log('🟢 Productos ya existentes. No se importó nada.');
   }
