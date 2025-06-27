@@ -34,7 +34,4 @@ mongoose.connect(process.env.MONGO_URI)
 .catch((error) => {
   console.error('❌ Error al conectar a MongoDB:', error);
 });
-app.listen(3000, () => {
-    console.log("Servidor escuchando en el puerto 3000");
-  });
-  
+

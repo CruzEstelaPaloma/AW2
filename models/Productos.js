@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 const productoSchema = new mongoose.Schema({
-    id: Number,
+    
     nombre: String,
     desc: String,
     precio: Number,

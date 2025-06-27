@@ -2,6 +2,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import fs from 'fs';
 import path from 'path';
+
 import Producto from './models/Productos.js';
 import Usuario from './models/usuarios.js';
 import Venta from './models/ventas.js';
@@ -9,24 +10,26 @@ import Venta from './models/ventas.js';
 dotenv.config();
 const __dirname = path.resolve();
 
-// Cargar datos originales
+// Leer los archivos JSON
 const productosJSON = JSON.parse(fs.readFileSync(path.join(__dirname, 'data/productos.json')));
-
 const usuariosJSON = JSON.parse(fs.readFileSync(path.join(__dirname, 'data/usuarios.json')));
 const ventasJSON = JSON.parse(fs.readFileSync(path.join(__dirname, 'data/ventas.json')));
 
 const importarDatos = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URI);
+
+    // Borrar todo
     await Producto.deleteMany();
     await Usuario.deleteMany();
     await Venta.deleteMany();
 
-    
+    // 🔥 Eliminar campo 'id' de productos antes de insertar
+    const productosLimpios = productosJSON.map(({ id, ...rest }) => rest);
+    const productosInsertados = await Producto.insertMany(productosLimpios);
     const usuariosInsertados = await Usuario.insertMany(usuariosJSON);
-    const productosInsertados = await Producto.insertMany(productosJSON);
 
-    
+    // Mapas para relacionar IDs numéricos con _id de Mongo
     const mapaUsuarios = {};
     usuariosInsertados.forEach(u => {
       mapaUsuarios[u.id] = u._id;
@@ -34,18 +37,21 @@ const importarDatos = async () => {
 
     const mapaProductos = {};
     productosInsertados.forEach(p => {
-      mapaProductos[p.id] = p._id;
+      mapaProductos[p.nombre] = p._id; // Mapeo por nombre porque ya no hay campo `id`
     });
 
-  
+    // Adaptar ventas
     const ventasAdaptadas = ventasJSON.map(venta => ({
       id_usuario: mapaUsuarios[venta.id_usuario],
       fecha: venta.fecha,
+      direccion: venta.direccion || 'Sin dirección',
       total: venta.total,
-      productos: venta.productos.map(p => ({
-        id: mapaProductos[p.id],
-        cantidad: p.cantidad,
-      }))
+      productos: venta.productos
+        .filter(p => p.id) // evitar entradas vacías
+        .map(p => ({
+          id: mapaProductos[productosJSON.find(prod => prod.id === p.id)?.nombre],
+          cantidad: p.cantidad
+        }))
     }));
 
     await Venta.insertMany(ventasAdaptadas);
@@ -58,6 +64,5 @@ const importarDatos = async () => {
   }
 };
 
-console.log("Productos a insertar:", productosJSON.length);
-
+console.log("📦 Iniciando importación de productos...");
 importarDatos();

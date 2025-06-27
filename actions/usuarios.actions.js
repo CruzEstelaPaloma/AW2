@@ -74,19 +74,32 @@ export const checkEmailExiste = async (req, res) => {
     const { email, contraseña } = req.body;
   
     try {
+      console.log("🔐 Intentando login con:", email);
+  
+      if (!email || !contraseña) {
+        console.log("⚠️ Faltan campos");
+        return res.status(400).json({ error: 'Faltan campos' });
+      }
+  
       const usuario = await UsuarioModel.findOne({ email });
   
       if (!usuario) {
+        console.log("❌ Usuario no encontrado");
         return res.status(401).json({ error: 'Email o contraseña incorrectos' });
       }
   
-       const esValida = await bcrypt.compare(contraseña, usuario.contraseña);
+      const esValida = await bcrypt.compare(contraseña, usuario.contraseña);
   
       if (!esValida) {
+        console.log("❌ Contraseña incorrecta");
         return res.status(401).json({ error: 'Email o contraseña incorrectos' });
       }
   
-      
+      if (!process.env.JWT_SECRET) {
+        console.log("❌ JWT_SECRET no definido");
+        return res.status(500).json({ error: 'Error interno de configuración' });
+      }
+  
       const token = jwt.sign(
         {
           id: usuario._id,
@@ -97,16 +110,20 @@ export const checkEmailExiste = async (req, res) => {
         { expiresIn: '1h' }
       );
   
+      console.log("✅ Login exitoso para:", email);
+  
       res.json({
         mensaje: 'Login exitoso',
         token,
         usuario: {
-            id: usuario._id,
-            
-          }
+          id: usuario._id,
+          nombre: usuario.nombre,
+          email: usuario.email,
+          EsCliente: usuario.EsCliente
+        }
       });
     } catch (err) {
-      console.error('Error en login:', err);
+      console.error('🔥 Error inesperado en loginUsuario:', err);
       res.status(500).json({ error: 'Error interno del servidor' });
     }
   };

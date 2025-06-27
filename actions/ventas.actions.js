@@ -1,4 +1,6 @@
 import VentaModel from '../models/ventas.js';
+import ProductoModel from '../models/Productos.js'; 
+import mongoose from 'mongoose';
 
 export const getVentas = async (req, res) => {
   try {
@@ -56,26 +58,45 @@ export const deleteVenta = async (req, res) => {
 
 
 export const realizarCompra = async (req, res) => {
+  console.log("📥 Backend recibió:", req.body);
+console.log("🔐 Usuario del token:", req.usuario);
   try {
+
     const { productos, total, direccion } = req.body;
-    const id_usuario = req.usuario.id;
+    const id_usuario = req.usuario._id || req.usuario.id;
+    
+
+
+
+    
+    // Validar productos y obtener sus ObjectId reales
+    const productosValidados = await Promise.all(productos.map(async (p) => {
+      const producto = await ProductoModel.findById(p.id);
+      if (!producto) {
+        throw new Error(`Producto con ID ${p.id} no encontrado`);
+      }
+      return {
+        id: producto._id,
+        cantidad: p.cantidad
+      };
+    }));
 
     const nuevaVenta = new VentaModel({
-      id_usuario,  
+      id_usuario,
       fecha: new Date(),
       total,
       direccion: direccion || 'Sin dirección',
-      productos: productos.map(p => ({
-        id: p.id,
-        cantidad: p.cantidad
-      }))
+      productos: productosValidados
     });
 
     await nuevaVenta.save();
 
-    res.status(201).json(nuevaVenta); 
+    res.status(201).json({ mensaje: 'Venta guardada', venta: nuevaVenta });
   } catch (error) {
-    console.error('Error en realizarCompra:', error);
+    console.error('Error en realizarCompra:', error.message);
     res.status(400).json({ error: 'Error al procesar la compra' });
   }
+
+  console.log("📥 Backend recibió:", req.body);
+  console.log("👤 Usuario autenticado:", req.usuario);
 };

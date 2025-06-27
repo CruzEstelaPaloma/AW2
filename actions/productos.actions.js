@@ -1,11 +1,22 @@
 import ProductoModel from '../models/Productos.js';
 
 // Obtener todos los productos
+//export const getProductos = async (req, res) => {
+  //try {
+   // const productos = await ProductoModel.find();
+   // res.json(productos);
+  //} catch (error) {
+  //  console.error("❌ Error detallado:", error);
+  //  res.status(500).json({ error: 'Error al obtener los productos' });
+//  }
+//};
+
 export const getProductos = async (req, res) => {
   try {
     const productos = await ProductoModel.find();
     res.json(productos);
   } catch (error) {
+    console.error("❌ Error en getProductos:", error); // 👈 AGREGÁ ESTO
     res.status(500).json({ error: 'Error al obtener los productos' });
   }
 };
